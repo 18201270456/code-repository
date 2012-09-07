@@ -1,3 +1,14 @@
+/*
+ * FILE NAME
+ *    valist.c
+ *
+ * DESCRIPTION
+ *    Demonstrates how the valist of <stdarg.h> works. According to VC.
+ * 
+ * AUTHOR
+ *    W.HW (2012-08-22)
+*/
+
 #include <stdio.h>
 
 typedef char * va_list;
@@ -15,14 +26,14 @@ int main()
     int i;
     char *s;
     
-    mprintf("test start...\n");
-    
     i = 1;
     s = "hello world!";
-    mprintf("i=%d, s=%s\n", i, s);
     
-    s = "second test!";
-    mprintf("s=%s\n", s);
+    mprintf("0 parameter(s): test start...\n");
+    mprintf("1 parameter(s): s=%s\n", s);
+    mprintf("2 parameter(s): i=%d, s=%s\n", i, s);
+    
+    return 0;
 }
 
 void mprintf(char *fmt, ...)

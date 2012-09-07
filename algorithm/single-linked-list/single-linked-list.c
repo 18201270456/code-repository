@@ -1,56 +1,67 @@
+/*
+* FILE NAME
+*    single-slisted-list.c
+*
+* DESCRIPTION
+*     Demonstrates the basic opreations of Single-Linked-List.
+*
+* AUTHOR
+*     W.HW (2012-08-29)
+*
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef struct node {
     char        *item;
     struct node *next;
-} *link;
+} *slist;
 
 
-void destroy(link);
-link initialize();
-void delete(link, int);
-void insert(link, int, char *);
-link search(link, char *);
-void pop(link);
-void push(link, char *);
-void traverse(link);
+slist initialize();
+void  insert(slist, int, char *);
+void  push(slist, char *);
+void  pop(slist);
+slist search(slist, char *);
+void  traverse(slist);
+void  delete(slist, int);
+void  destroy(slist);
 
 int main()
 {
-    link linkhead = initialize();
-    pop(linkhead);
+    slist head = initialize();
+    pop(head);
     
-    push(linkhead, "test1");
-    push(linkhead, "test2");
-    push(linkhead, "test3");
-    push(linkhead, "test4");
-    push(linkhead, "test5");
-    push(linkhead, "test2");
-    push(linkhead, "test7");
+    push(head, "test1");
+    push(head, "test2");
+    push(head, "test3");
+    push(head, "test4");
+    push(head, "test5");
+    push(head, "test2");
+    push(head, "test7");
     
-    pop(linkhead);
-    push(linkhead, "test3");
-    delete(linkhead, 3);
+    pop(head);
+    push(head, "test3");
+    delete(head, 3);
     
-    traverse(linkhead);
+    traverse(head);
     
-    insert(linkhead, 2, "replace 2");
-    traverse(linkhead);
+    insert(head, 2, "replace 2");
+    traverse(head);
     
-    search(linkhead, "test2");
+    search(head, "test2");
     
-    destroy(linkhead);
+    destroy(head);
     
 }
 
 
-void destroy(link head)
+void destroy(slist head)
 {
-    printf("destroy(link)\n");
+    printf("destroy(slist)\n");
     
-    link temp = head;
-    link t    = head;
+    slist temp = head;
+    slist t    = head;
     for(;;)
     {
         t = temp;
@@ -66,11 +77,11 @@ void destroy(link head)
     printf("\n");
 }
 
-link initialize()
+slist initialize()
 {
     printf("initialize()\n");
     
-    link head = malloc(sizeof(link));
+    slist head = malloc(sizeof(slist));
     
     head->item = "I'm the head!";
     head->next = NULL;
@@ -80,11 +91,11 @@ link initialize()
     return head;
 }
 
-void delete(link head, int i)
+void delete(slist head, int i)
 {
-    printf("delete(link, int); delete the [%d]'th item.\n", i);
+    printf("delete(slist, int); delete the [%d]'th item.\n", i);
     
-    link temp    = head;
+    slist temp    = head;
     
     int j = 0;
     
@@ -109,12 +120,12 @@ void delete(link head, int i)
 }
 
 
-void insert(link head, int i, char *item)
+void insert(slist head, int i, char *item)
 {
-    printf("insert(link, int, char *); insert item => [%s] as the [%d]'th.\n", item, i);
+    printf("insert(slist, int, char *); insert item => [%s] as the [%d]'th.\n", item, i);
     
-    link temp    = head;
-    link newitem = malloc(sizeof(link));
+    slist temp    = head;
+    slist newitem = malloc(sizeof(slist));
     
     newitem->item = item;
     
@@ -141,11 +152,11 @@ void insert(link head, int i, char *item)
     printf("\n");
 }
 
-link search(link head, char *item)
+slist search(slist head, char *item)
 {
-    printf("search(link, item); item => [%s]\n", item);
+    printf("search(slist, item); item => [%s]\n", item);
     
-    link temp = head;
+    slist temp = head;
     int  i    = 0;
      
     for(;;)
@@ -167,11 +178,11 @@ link search(link head, char *item)
     printf("\n");
 }
 
-void pop(link head)
+void pop(slist head)
 {
-    printf("pop(link)\n");
+    printf("pop(slist)\n");
     
-    link temp = head;
+    slist temp = head;
     
     for(;;)
     {
@@ -193,12 +204,12 @@ void pop(link head)
     printf("\n");
 }
 
-void push(link head, char *item)
+void push(slist head, char *item)
 {
-    printf("push(link, item); item => '%s'\n", item);
+    printf("push(slist, item); item => '%s'\n", item);
     
-    link newitem = malloc(sizeof(struct node)); 
-    link temp    = head;
+    slist newitem = malloc(sizeof(struct node)); 
+    slist temp    = head;
     
     newitem->item = item;
     newitem->next = NULL;
@@ -218,17 +229,17 @@ void push(link head, char *item)
     printf("\n");
 }
 
-void traverse(link head)
+void traverse(slist head)
 {
-    printf("traverse(link)\n");
+    printf("traverse(slist)\n");
 
     if (head == NULL)
     {
-        printf("linkhead is NULL!\n");
+        printf("slisthead is NULL!\n");
         exit(0);
     }
     
-    link temp = head;
+    slist temp = head;
     for(;;)
     {
         if(temp->next == NULL)

@@ -1,18 +1,23 @@
+/*
+ * FILE NAME
+ *    option.c
+ *
+ * DESCRIPTION
+ *    Demonstrates how to use function getopt_long(<getopt.h>) to parse cmd-line options.
+ *    Will use as a template during programing.
+ * 
+ * EXAMPLE
+ *    $ ./a.out --help --version --ip 127.0.0.1 --port 8080
+ *    $ ./a.out -h -v -i 127.0.0.1 -p 8080
+ *    
+ *    $ ./a.out --long -s
+ * 
+ * AUTHOR
+ *    W.HW (2012-09-01)
+*/
 #include <stdio.h>
 #include <getopt.h>
 
-
-/*
- * DESCRIPTION
- *    Demonstrates how to use function getopt_long to parse cmd-line options.
- * 
- * EXAMPLE
- *     $ ./a.out --help --version --ip 127.0.0.1 --port 8080
- *     $ ./a.out -h -v -i 127.0.0.1 -p 8080
- *
- *     $ ./a.out --long -s
- * 
-*/
 int main(int argc, char * argv[])
 {
     int option;
@@ -22,7 +27,7 @@ int main(int argc, char * argv[])
          {"version", no_argument,       NULL, 'v'},
          {"ip",      required_argument, NULL, 'i'},
          {"port",    required_argument, NULL, 'p'},
-         {"long",    no_argument,       NULL, 'l'}, /* only long option support for this one */
+         {"long",    no_argument,       NULL, 'l'}, /* only long option supported for this one */
          {0, 0, 0, 0}
     };
     

@@ -1,12 +1,17 @@
+/*
+* FILE NAME
+*    bstree.c
+*
+* DESCRIPTION
+*     Demonstrates the basic opreations of Binary-Search-Tree.
+*
+* AUTHOR
+*     W.HW (2012-08-31)
+*
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
-
-binary search tree
-binary search tree
-
-*/
 
 typedef struct binary_search_tree {
     int                       data;
