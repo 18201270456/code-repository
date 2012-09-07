@@ -3,7 +3,7 @@
  
 set encoding=utf-8
  
-"let vim support other languanges.
+"let vim support chinese
 let &termencoding=&encoding
 set fileencodings=utf-8,gb18030,gbk,gb2312,big5
  
