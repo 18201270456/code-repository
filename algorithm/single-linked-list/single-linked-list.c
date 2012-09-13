@@ -46,7 +46,7 @@ int main()
     
     traverse(head);
     
-    insert(head, 2, "replace 2");
+    insert(head, 2, "insert to position 2");
     traverse(head);
     
     search(head, "test2");
@@ -235,7 +235,7 @@ void traverse(slist head)
 
     if (head == NULL)
     {
-        printf("slisthead is NULL!\n");
+        printf("head is NULL!\n");
         exit(0);
     }
     

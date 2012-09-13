@@ -1,0 +1,30 @@
+#
+# DESCRIPTION
+#     configure file for bochs start up
+# 
+# EXAMPLE 
+#     $ bochs -f bochsrc
+#
+
+# how much memory the emulated machine will have
+megs: 32
+
+# filename of ROM images (varied in different system)
+romimage: file=/usr/local/share/bochs/BIOS-bochs-latest
+vgaromimage: file=/usr/share/vgabios/vgabios.bin
+
+# choose the boot disk. (or, can use "boot: a")
+boot: floppy
+#boot: a
+
+# what disk images will be used
+floppya: 1_44=image/a.img, status=inserted
+
+# log messages
+#log: bochsout.txt
+
+# disable the mouse
+mouse: enabled=0
+
+# enable key mapping, using US layout as default.
+#keyboard_mapping: enabled=1, map=/usr/share/bochs/keymaps/x11-pc-us.map

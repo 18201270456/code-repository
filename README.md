@@ -1,4 +1,4 @@
 
-Backup of codes and some configuration files.
+Backup of codes I wrote and some configuration files.
 
 
