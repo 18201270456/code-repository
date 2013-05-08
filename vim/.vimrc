@@ -69,16 +69,6 @@ nnoremap P Pzz
 nnoremap <c-d> <c-d>zz
 nnoremap <c-u> <c-u>zz
 
-
-"for windows
-if has("win32")
-    set guifont=Courier_New:h11:cANSI
-    set guifontwide=Courier_New:h11:cANSI
-    set clipboard=unnamed
-else
-    set clipboard=unnamedplus
-endif
-
 "when past something in, don't indent.
 set pastetoggle=<c-h>
 
@@ -93,6 +83,16 @@ let g:vimim_punctuation=-1
 "remark:
 "    Linux (vim 7.3.74+): set clipboard=unnamedplus
 "    Windows, or else   : set clipboard=unnamed
+
+"for windows
+if has("win32")
+    set guifont=Courier_New:h11:cANSI
+    set guifontwide=Courier_New:h11:cANSI
+    set clipboard=unnamed
+else
+    set clipboard=unnamedplus
+endif
+
 set mouse=v
 
 "set sign of 80'th column
