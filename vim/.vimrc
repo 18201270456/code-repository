@@ -74,7 +74,10 @@ nnoremap <c-u> <c-u>zz
 if has("win32")
     set guifont=Courier_New:h11:cANSI
     set guifontwide=Courier_New:h11:cANSI
+    set clipboard=unnamed
 "   set go="无菜单、工具栏"
+else
+    set clipboard=unnamedplus
 endif
 
 "when past something in, don't indent.
@@ -88,7 +91,8 @@ let g:vimim_map='c-bslash'
 let g:vimim_punctuation=-1
 
 "set swap of vim = clipboard, make copy/paste easy.
-set clipboard=unnamedplus
+"this is only for linux, windows should be [unnamed].
+"set clipboard=unnamedplus
 set mouse=v
 
 "set sign of 80'th column
