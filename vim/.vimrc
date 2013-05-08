@@ -75,7 +75,6 @@ if has("win32")
     set guifont=Courier_New:h11:cANSI
     set guifontwide=Courier_New:h11:cANSI
     set clipboard=unnamed
-"   set go="无菜单、工具栏"
 else
     set clipboard=unnamedplus
 endif
@@ -91,8 +90,9 @@ let g:vimim_map='c-bslash'
 let g:vimim_punctuation=-1
 
 "set swap of vim = clipboard, make copy/paste easy.
-"this is only for linux, windows should be [unnamed].
-"set clipboard=unnamedplus
+"remark:
+"    Linux (vim 7.3.74+): set clipboard=unnamedplus
+"    Windows, or else   : set clipboard=unnamed
 set mouse=v
 
 "set sign of 80'th column
