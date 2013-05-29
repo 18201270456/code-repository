@@ -1,0 +1,35 @@
+.applemenu{
+margin: 5px 0;
+padding: 0;
+width: 170px; /*width of menu*/
+border: 1px solid #9A9A9A;
+}
+
+.applemenu div.silverheader a{
+background: black url(../image/silvergradient.gif) repeat-x center left;
+font: normal 12px Tahoma, "Lucida Grande", "Trebuchet MS", Helvetica, sans-serif;
+color: white;
+display: block;
+position: relative; /*To help in the anchoring of the ".statusicon" icon image*/
+width: auto;
+padding: 5px 0;
+padding-left: 8px;
+text-decoration: none;
+}
+
+
+.applemenu div.silverheader a:visited, .applemenu div.silverheader a:active{
+color: white;
+}
+
+
+.applemenu div.selected a, .applemenu div.silverheader a:hover{
+background-image: url(../image/silvergradientover.gif);
+color: white;
+}
+
+.applemenu div.submenu{ /*DIV that contains each sub menu*/
+background: white;
+padding: 5px;
+/* height: 300px;  Height that applies to all sub menu DIVs. A good idea when headers are toggled via "mouseover" instead of "click"*/
+}
