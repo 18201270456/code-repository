@@ -3,10 +3,10 @@ ddaccordion.init({
 	contentclass: "submenu", //Shared CSS class name of contents group
 	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
 	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
-	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+	collapseprev: false, //Collapse previous content (so only one open at any time)? true/false
+	defaultexpanded: [0,1,2,3,4,5,6], //index of content(s) open by default [index1, index2, etc] [] denotes no content
 	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
-	animatedefault: false, //Should contents open by default be animated into view?
+	animatedefault: true, //Should contents open by default be animated into view?
 	persiststate: true, //persist state of opened contents within browser session?
 	toggleclass: ["", "selected"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
 	togglehtml: ["position", "html1", "htm22"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)

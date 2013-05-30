@@ -17,7 +17,22 @@
       .sidebar-nav {
         padding: 9px 0;
       }
-
+	  
+	  .nav-header {
+		background-color: #eeeeee;
+	  }
+	  
+	  .nav-header > a:link{
+		color: #696969;
+		/* text-decoration: underline; */
+		
+	  }
+	  
+	  .nav-header > a:hover{
+		color: #7A9FD7;
+		/* background-image: url("image/silvergradient.gif"); */
+	  }
+	  
       @media (max-width: 980px) {
         /* Enable use of floated navbar text */
         .navbar-text.pull-right {
@@ -28,7 +43,7 @@
       }
     </style>
     <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-
+	
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="bootstrap/js/html5shiv.js"></script>
@@ -40,6 +55,8 @@
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
                     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+	
+    <link href="css/ddaccordin.css" rel="stylesheet" media="screen">
   </head>
 
   <body>
@@ -55,7 +72,7 @@
           <a class="brand" href="#">sleepycat.org</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link">Username</a>
+              页面： [ C 语言 >> 基础笔记 >> 关于参数 ]
             </p>
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
@@ -65,50 +82,79 @@
         </div>
       </div>
     </div>
+	
+
+
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3 bs-docs-siderbar ">
-          <div class="well sidebar-nav affix">
-            <ul class="nav nav-list bs-docs-sidenav ">
-              <li class="nav-header">Sidebar</li>
-              <li class="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-            </ul>
+        <div class="span3">
+          <div class="well sidebar-nav">
+		  
+			  <div class="silverheader">
+				<ul class="nav nav-list bs-docs-sidenav ">
+					<li class="nav-header"><a href="JavaScript: void(0);">首页</a></li>
+				</ul>
+			  </div>
+			  <div class="submenu">
+				<ul class="nav nav-list bs-docs-sidenav ">
+				  <li><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				</ul>
+			  </div>
+			  
+			  <div class="silverheader">
+				<ul class="nav nav-list bs-docs-sidenav ">
+					<li class="nav-header"><a href="JavaScript: void(0);">C 语言</a></li>
+				</ul>
+			  </div>
+			  <div class="submenu">
+				<ul class="nav nav-list bs-docs-sidenav ">
+				  <li class="active"><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				</ul>
+			  </div>
+			  
+			  <div class="silverheader">
+				<ul class="nav nav-list bs-docs-sidenav ">
+					<li class="nav-header"><a href="JavaScript: void(0);">Python 语言</a></li>
+				</ul>
+			  </div>
+			  <div class="submenu">
+				<ul class="nav nav-list bs-docs-sidenav ">
+				  <li><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				</ul>
+			  </div>
+			  
+			  <div class="silverheader">
+				<ul class="nav nav-list bs-docs-sidenav ">
+					<li class="nav-header"><a href="JavaScript: void(0);">Linux</a></li>
+				</ul>
+			  </div>
+			  <div class="submenu">
+				<ul class="nav nav-list bs-docs-sidenav ">
+				  <li><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				</ul>
+			  </div>
+
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
 		
           <div class="hero-unit">
-            <h1>Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+			<img src="logo.jpg"  alt="Test Image" />
+            <h1>Hello, world! 您好啊！</h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.这是一段测试句子。</p>
             <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
           </div>
 		  
@@ -192,6 +238,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="jquery/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
+	
+    <script src="js/ddaccordion.js"></script>
+    <script src="js/ddaccordion_conf.js"></script>
   </body>
 </html>
