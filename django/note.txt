@@ -1,0 +1,26 @@
+﻿E:\WorkSpace\Django\sleepycat_org\htdocs> mkdir workspace
+
+mv django dir here
+cp django\bin\django-admin.py here
+
+E:\WorkSpace\Django\sleepycat_org\htdocs\workspace>django-admin.py startproject sleepycat
+
+
+
+#add django module to search path.#
+E:\WorkSpace\Django\sleepycat_org\htdocs\workspace\sleepycat>set PYTHONPATH=E:\WorkSpace\Django\sleepycat_org\htdocs\workspace
+
+E:\WorkSpace\Django\sleepycat_org\htdocs\workspace\sleepycat>python manage.py runserver 0.0.0.0:8080
+Validating models...
+
+0 errors found
+June 16, 2013 - 10:37:03
+Django version 1.5.1, using settings 'sleepycat.settings'
+Development server is running at http://0.0.0.0:8080/
+Quit the server with CTRL-BREAK.
+
+
+
+
+Eclipse configure python interpreter, add django parent path(E:\WorkSpace\Django\sleepycat_org\htdocs\workspace) to it.
+
