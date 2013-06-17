@@ -5,6 +5,7 @@ import datetime, time
 msgbox = ctypes.windll.user32.MessageBoxA
 
 
+
 while True:
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     nowminute = datetime.datetime.now().strftime('%M')
