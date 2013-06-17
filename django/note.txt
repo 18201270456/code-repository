@@ -4,6 +4,8 @@ mv django dir here
 cp django\bin\django-admin.py here
 
 E:\WorkSpace\Django\sleepycat_org\htdocs\workspace>django-admin.py startproject sleepycat
+or
+E:\WorkSpace\Django>C:\Python27\python.exe django\bin\django-admin.py startproject sleepycat
 
 
 
