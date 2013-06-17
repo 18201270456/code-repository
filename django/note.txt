@@ -26,3 +26,13 @@ Quit the server with CTRL-BREAK.
 
 Eclipse configure python interpreter, add django parent path(E:\WorkSpace\Django\sleepycat_org\htdocs\workspace) to it.
 
+
+
+
+
+
+
+
+
+
+
