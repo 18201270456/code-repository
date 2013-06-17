@@ -1,0 +1,21 @@
+samba config
+
+henry@debian01:~$ sudo apt-get install samba
+
+
+275 [samba]
+276    comment = Network Logon Service
+277    path = /home/henry/samba
+278    guest ok = yes
+279    read only = no
+280    writeable = yes
+
+
+henry@debian01:~/samba$ sudo /etc/init.d/samba restart
+
+
+
+
+
+henry@debian01:~$ sudo apt-get install subversion
+
