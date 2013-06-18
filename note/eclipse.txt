@@ -1,0 +1,71 @@
+﻿pydev install:
+
+Help => Install New Software => Pydev - http://pydev.org/updates
+
+Help => Install New Software => Pydev - http://subclipse.tigris.org/update_1.8.x
+
+Help => Install New Software => Pydev - http://download.eclipse.org/tools/cdt/releases/juno
+
+Conf:
+
+Window => Preferences => Pydev => Interpreter - Python
+
+Window => Preferences => General => Editors => Text Editor => Show White Spce Chars/Sow Line Numbers
+
+Window => Preferences => General => Editors => Text Editor => Spelling => Encoding => UTF-8
+
+Window => Preferences => General => Workspace => Encoding => UTF-8
+
+
+
+Eclipse Workspace Start:
+
+Window => Preferences => General => Startup and Shutdown => Workspace
+
+
+
+Eclipse Python Code Font:
+
+Window => Preferences => Pydev => Editor
+
+Window => Preferences => General => Appearance => Color and Fonts => Basic : Text Font
+
+
+
+
+
+
+PyInstaller:
+
+install pywin32 for python2.7 first.
+
+then, put src files under PyInstaller Path, like "F:\work\python\src\pyinstaller-2.0\", run
+
+>pyinstaller.py -w test.py
+
+test\disc\ is where the result is.
+
+
+-w, --windowed, --noconsole
+ 	use a windowed subsystem executable, which on Windows does not open the console when the program is launched. On Mac OS X it allows running gui applications and also creates also .app bundle. This option is mandatory when freezing an gui application on Mac OS X. Otherwise the application will not start..
+
+pyinstaller-2.0/doc/Manual.html#installing-pyinstaller
+
+
+
+
+
+
+eclipse:
+
+Shift + Tab  => Move Block Forward.
+Ctrl  + \    => Mark Multi Lines.
+Ctrl  + F11  => Run
+
+
+Window => Show View => Outline
+
+
+
+Under Linux:
+$ sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-i18n

@@ -6,12 +6,12 @@ from selenium.webdriver.support import expected_conditions as EC # available sin
 
 # Create a new instance of the Firefox driver
 #driver = webdriver.Firefox()
-driver = webdriver.Ie("E:\WorkSpace\Selenium\WebDriver\IEDriverServer.exe")
+driver = webdriver.Ie("E:\WorkSpace\Selenium\WebDrivers\IEDriverServer.exe")
 #driver = webdriver.Chrome("E:\WorkSpace\Selenium\WebDriver\chromedriver.exe")
 
 
 # go to the google home page
-driver.get("http://203.208.46.145/")
+driver.get("http://www.google.com")
 
 # find the element that's name attribute is q (the google search box)
 inputElement = driver.find_element_by_name("q")
