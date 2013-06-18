@@ -6,6 +6,9 @@ Help => Install New Software => Pydev - http://subclipse.tigris.org/update_1.8.x
 
 Help => Install New Software => Pydev - http://download.eclipse.org/tools/cdt/releases/juno
 
+Get Web Dev Tools:
+http://www.eclipse.org/downloads/download.php?file=/webtools/downloads/drops/R3.4.2/R-3.4.2-20130208151217/wtp4x-R-3.4.2-20130208151217.zip
+copy to eclipse/ dir.
 
 
 Conf:
