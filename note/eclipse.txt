@@ -6,6 +6,8 @@ Help => Install New Software => Pydev - http://subclipse.tigris.org/update_1.8.x
 
 Help => Install New Software => Pydev - http://download.eclipse.org/tools/cdt/releases/juno
 
+
+
 Conf:
 
 Window => Preferences => Pydev => Interpreter - Python
@@ -16,11 +18,15 @@ Window => Preferences => General => Editors => Text Editor => Spelling => Encodi
 
 Window => Preferences => General => Workspace => Encoding => UTF-8
 
+Window => Preferences => Team => SVN => Label Decorations => Text => Date: {yyyy-MM-dd HH:mm}
+
+
 
 
 Eclipse Workspace Start:
 
 Window => Preferences => General => Startup and Shutdown => Workspace
+
 
 
 

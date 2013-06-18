@@ -6,12 +6,12 @@ from selenium.webdriver.support import expected_conditions as EC # available sin
 
 # Create a new instance of the Firefox driver
 #driver = webdriver.Firefox()
-driver = webdriver.Ie("E:\WorkSpace\Selenium\WebDrivers\IEDriverServer.exe")
-#driver = webdriver.Chrome("E:\WorkSpace\Selenium\WebDriver\chromedriver.exe")
+#driver = webdriver.Ie("E:\Selenium\WebDrivers\IEDriverServer.exe")
+driver = webdriver.Chrome(executable_path='E:\Selenium\WebDrivers\chromedriver.exe')
 
 
 # go to the google home page
-driver.get("http://www.google.com")
+driver.get("http://203.208.46.145/")
 
 # find the element that's name attribute is q (the google search box)
 inputElement = driver.find_element_by_name("q")
@@ -24,7 +24,9 @@ inputElement.submit()
 
 # the page is ajaxy so the title is originally this:
 print driver.title
+print "haha"
 
+'''
 try:
     # we have to wait for the page to refresh, the last thing that seems to be updated is the title
     WebDriverWait(driver, 10).until(EC.title_contains("cheese!"))
@@ -34,6 +36,4 @@ try:
 
 finally:
     driver.quit()
-
-
-print "haha"
+'''
