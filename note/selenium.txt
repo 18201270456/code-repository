@@ -1,0 +1,10 @@
+
+About Proxy:
+    IE Internet Options, set "127.0.0.1" as exception address.
+
+
+
+
+
+
+

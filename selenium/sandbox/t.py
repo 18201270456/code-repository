@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC # available sin
 # Create a new instance of the Firefox driver
 #driver = webdriver.Firefox()
 #driver = webdriver.Ie("E:\Selenium\WebDrivers\IEDriverServer.exe")
-driver = webdriver.Chrome(executable_path='E:\Selenium\WebDrivers\chromedriver.exe')
+driver = webdriver.Chrome('E:\Selenium\WebDrivers\chromedriver.exe')
 
 
 # go to the google home page
@@ -23,7 +23,7 @@ inputElement.send_keys("Cheese!")
 inputElement.submit()
 
 # the page is ajaxy so the title is originally this:
-print driver.title
+#print driver.title
 print "haha"
 
 '''
