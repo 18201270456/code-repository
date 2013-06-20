@@ -1,30 +1,19 @@
 
-About Me:
+About Me
+----------------------------
+Henry Wang(Nanjing, China)
 
-    Henry Wang(Nanjing, China)
+### Blog:
+[http://sleepycat.org/](http://sleepycat.org/)
 
+### Career:
+Automation Test Engineer
 
-My Blog:
-
-    http://sleepycat.org/
-
-
-My Career:
-
-    Automation Test Engineer
-
-
-My Prefered Skills:
-
-    Network Programing
-    
-    Selenium
-    
-    QTP
-    
-    Django
-    
-    Linux
-    
-    Python/C/JavaScript
+### Technologies:
+Python/C/JavaScript<br />
+Network Programing<br />
+Selenium<br />
+QTP<br />
+Django<br />
+Linux<br />
 
