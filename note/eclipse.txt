@@ -23,7 +23,7 @@ Window => Preferences => General => Workspace => Encoding => UTF-8
 
 Window => Preferences => Team => SVN => Label Decorations => Text => Date: {yyyy-MM-dd HH:mm}
 
-
+Window => Preferences => General => Workspace =>  UTF-8
 
 
 Eclipse Workspace Start:
