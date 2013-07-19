@@ -15,5 +15,5 @@ while True:
     if nowminute == "45":
         msgbox(None, '[' + now + ']:  Time for a BREAK!! Go for a WALK!!!', 'WARNING', 0)
     
-    time.sleep(50)
+    time.sleep(60)
 

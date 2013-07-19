@@ -21,7 +21,7 @@ class TestLogin(unittest.TestCase):
         self.driver.quit()
 
 
-    def test_login1(self):
+    def testLogin1(self):
         self.action.send_keys_to_element(self.usrid, "SHAROXIA")
         self.action.send_keys_to_element(self.pwd,   "SIGNINTRAdev006")
         self.action.click(self.btnlogin)

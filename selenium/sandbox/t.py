@@ -1,39 +1,104 @@
-﻿from selenium import webdriver
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
-from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
+﻿﻿#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import selenium.webdriver as webdriver
+import browser
+from selenium.webdriver.common.by import By
+import time
+from selenium.selenium import selenium
 
 
-# Create a new instance of the Firefox driver
-#driver = webdriver.Firefox()
-#driver = webdriver.Ie("E:\Selenium\WebDrivers\IEDriverServer.exe")
-driver = webdriver.Chrome('E:\Selenium\WebDrivers\chromedriver.exe')
+
+class WebElement(object):
+    (by, value) = (None, None)
+    
+    @classmethod
+    def Set(cls, value):
+        element = browser.driver.find_element(cls.by, cls.value)
+        
+        element.clear()
+        action = webdriver.ActionChains(browser.driver)
+        action.send_keys_to_element(element, value)
+        action.perform()
+
+    @classmethod
+    def Get(cls):
+        element = browser.driver.find_element(cls.by, cls.value)
+        
+        return element.get_attribute('value')
+
+    @classmethod
+    def Click(cls):
+        element = browser.driver.find_element(cls.by, cls.value)
+        
+        action = webdriver.ActionChains(browser.driver)
+        action.click(element)
+        action.perform()
+
+    @classmethod
+    def MouseOver(cls):
+        element = browser.driver.find_element(cls.by, cls.value)
+        
+        
+        action = webdriver.ActionChains(browser.driver)
+        action.move_to_element(element)
+        action.move_to_element_with_offset(element, 100, 100)
+        action.perform()
 
 
-# go to the google home page
-driver.get("http://203.208.46.145/")
+class Login(object):
+    class UserName(WebElement):
+        (by, value) = (By.NAME, "simsId")
+    
+    class Password(WebElement):
+        (by, value) = (By.NAME, "simsPwd")
 
-# find the element that's name attribute is q (the google search box)
-inputElement = driver.find_element_by_name("q")
+    class LoginButton(WebElement):
+        (by, value) = (By.NAME, "butLogin")
 
-# type in the search
-inputElement.send_keys("Cheese!")
 
-# submit the form (although google automatically searches now without submitting)
-inputElement.submit()
+class Baidu(object):
+    class SearchInput(WebElement):
+        (by, value) = (By.ID, "kw")
 
-# the page is ajaxy so the title is originally this:
-#print driver.title
-print "haha"
+
+browser.driver.get("http://www.baidu.com")
+
+Baidu.SearchInput.Set("selenium")
+
+element = browser.driver.find_element(By.ID, "kw")
+
+time.sleep(3)
+Baidu.SearchInput.MouseOver()
+Baidu.SearchInput.Set("tosca")
+time.sleep(3)
+
+print Baidu.SearchInput.Get()
 
 '''
-try:
-    # we have to wait for the page to refresh, the last thing that seems to be updated is the title
-    WebDriverWait(driver, 10).until(EC.title_contains("cheese!"))
+browser.driver.get("https://portal-dev.dc.signintra.com/odm/pages/index.xhtml")
 
-    # You should see "cheese! - Google Search"
-    print driver.title
 
-finally:
-    driver.quit()
+time.sleep(3)
+Login.UserName.Set("haha")
+time.sleep(3)
+Login.UserName.MouseOver()
+time.sleep(3)
+Login.Password.Set("123")
+Login.LoginButton.Click()
+
+#browser.driver.find_element(by, value)
+
+time.sleep(3)
+
+
 '''
+browser.driver.quit()
+
+
+
+
+
+
+
+
