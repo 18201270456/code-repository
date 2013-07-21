@@ -1,11 +1,11 @@
-﻿﻿#!/usr/bin/env python
+#!/usr/bin/evn python
 # -*- coding: utf-8 -*-
 
 import selenium.webdriver as webdriver
 import browser
 from selenium.webdriver.common.by import By
 import time
-from selenium.selenium import selenium
+
 
 
 
@@ -39,10 +39,9 @@ class WebElement(object):
     def MouseOver(cls):
         element = browser.driver.find_element(cls.by, cls.value)
         
-        
         action = webdriver.ActionChains(browser.driver)
         action.move_to_element(element)
-        action.move_to_element_with_offset(element, 100, 100)
+        #action.move_to_element_with_offset(element, 100, 100)
         action.perform()
 
 
@@ -60,20 +59,26 @@ class Login(object):
 class Baidu(object):
     class SearchInput(WebElement):
         (by, value) = (By.ID, "kw")
+        
+    class SearchButton(WebElement):
+        (by, value) = (By.ID, "su")
 
 
 browser.driver.get("http://www.baidu.com")
 
 Baidu.SearchInput.Set("selenium")
 
-element = browser.driver.find_element(By.ID, "kw")
+#element = browser.driver.find_element(By.ID, "kw")
 
-time.sleep(3)
-Baidu.SearchInput.MouseOver()
+#time.sleep(3)
+#Baidu.SearchInput.MouseOver()
+Baidu.SearchButton.MouseOver()
 Baidu.SearchInput.Set("tosca")
 time.sleep(3)
 
 print Baidu.SearchInput.Get()
+Baidu.SearchButton.Click()
+time.sleep(3)
 
 '''
 browser.driver.get("https://portal-dev.dc.signintra.com/odm/pages/index.xhtml")
