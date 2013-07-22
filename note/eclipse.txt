@@ -23,7 +23,9 @@ Window => Preferences => General => Workspace => Encoding => UTF-8
 
 Window => Preferences => Team => SVN => Label Decorations => Text => Date: {yyyy-MM-dd HH:mm}
 
-Window => Preferences => General => Workspace =>  UTF-8
+Window => Preferences => General => Content Types => Python File => Default encodings: UTF-8
+
+Window => Show View => Outline
 
 
 Eclipse Workspace Start:
