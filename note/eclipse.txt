@@ -19,6 +19,8 @@ Window => Preferences => General => Editors => Text Editor => Show White Spce Ch
 
 Window => Preferences => General => Editors => Text Editor => Spelling => Encoding => UTF-8
 
+Window => Preferences => General => Editors => File Associations
+
 Window => Preferences => General => Workspace => Encoding => UTF-8
 
 Window => Preferences => Team => SVN => Label Decorations => Text => Date: {yyyy-MM-dd HH:mm}
