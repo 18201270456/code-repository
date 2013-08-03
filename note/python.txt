@@ -1,0 +1,26 @@
+PyInstaller:
+
+install pywin32 for python2.7 first.
+
+then, put src files under PyInstaller Path, like "F:\work\python\src\pyinstaller-2.0\", run
+
+>pyinstaller.py -w test.py
+
+test\disc\ is where the result is.
+
+-w, --windowed, --noconsole
+    use a windowed subsystem executable, which on Windows does not open the console when the program is launched. On Mac OS X it allows running gui applications and also creates also .app bundle. This option is mandatory when freezing an gui application on Mac OS X. Otherwise the application will not start..
+
+pyinstaller-2.0/doc/Manual.html#installing-pyinstaller
+
+===== Update ===============
+No need to install, just download pyinstaller-2.0 (pre-install pywin32-218.win32-py2.7.exe)
+
+
+>>E:\WorkSpace\pyinstaller-2.0>pyinstaller.py  ..\GIS\src\gis\main.py  (copy all the folders like (img/ ico/) to pyinstaller-2.0/)
+
+>>E:\WorkSpace\pyinstaller-2.0>main\dist\main\main.exe (copy all the folders like (img/ ico/) to main\dist\main\)
+
+all chinese input must decode to utf-8. Or, confirmd, just like u"Chinese Chars", or u'Chinese Chars'
+
+
