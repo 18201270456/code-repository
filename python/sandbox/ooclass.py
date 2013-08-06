@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import inspect
+import sys
 
 class TestClass(object):
     p1 = "hi"
@@ -10,6 +12,10 @@ class TestClass(object):
     
     def fun1(self, parameter1):
         return parameter1
+    
+    def fun22(self):
+        print inspect.stack()[0][3]
+        print sys._getframe().f_code.co_name
 
 
 
@@ -23,6 +29,8 @@ if __name__ == '__main__':
     TestClass.p1 = "nono"
     print TestClass.p1
     print t.p1
+    
+    t.fun22()
 
 
 
