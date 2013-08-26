@@ -4,7 +4,9 @@
 from pkg1.m1 import M1BC
 import pkg2
 import sys
+import pkg1.m1
 
+import inspect
 
 
 class T1(object):
@@ -21,8 +23,24 @@ class T1(object):
     def test3(self):
         raise NameError('HiThere')
 
-if __name__ == "__main__":
-    M1BC()
-    T1().test1()
 
+class T2(T1):
+    @classmethod
+    def test5(cls):
+        for base in cls.__class__.__bases__:
+            print base.__name__
+        
+
+if __name__ == "__main__":
+    #M1BC()
+    #T1().test1()
+    
+    print inspect.getmro(T2)
+
+    '''
+    from pkg2 import m2
+    m2.v2 = 22
+    from pkg2 import m2
+    print m2.v2
+    '''
 

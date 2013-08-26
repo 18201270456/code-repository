@@ -5,7 +5,7 @@ import sys
 import pkg1
 import m2b
 
-from pkg1.m1 import M1BC
+#from pkg1.m1 import M1BC
 class M2:
     def __init__(self):
         print "m2"
@@ -13,6 +13,10 @@ class M2:
         print "m2.test"
         
         
+        
+        
+v1 = False
+v2 = "1"
 
 
 if __name__ == "__main__":
