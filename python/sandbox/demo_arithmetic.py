@@ -8,4 +8,5 @@ def arithmetic_test(par1, par2):
 
 if __name__ == '__main__':
     arithmetic_test("1", int("3"))
-    
+    t = "E:\\c\\t.txt"
+    print t.split('\\')[-1].split('/')[-1]
