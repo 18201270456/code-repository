@@ -74,7 +74,8 @@ eclipse:
 Shift + Tab  => Move Block Forward.
 Ctrl  + \    => Mark Multi Lines.
 Ctrl  + F11  => Run
-
+Ctrl  + 9    => Folder All Class/Methods
+Ctrl  + 0    => UnFolder All Class/Methods
 
 Window => Show View => Outline
 
