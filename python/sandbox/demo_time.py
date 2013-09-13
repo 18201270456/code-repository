@@ -1,7 +1,7 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
+import sys
 import datetime
 import time
 
@@ -17,6 +17,7 @@ if __name__ == '__main__':
     print time1
     print time2
     print t
+    print sys.path
     
 
 
