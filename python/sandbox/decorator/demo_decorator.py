@@ -25,17 +25,22 @@ def demo_decorator(*args, **kwargs):
 
 
 
+
 print ""
 print "#### define <demo_function> with <demo_decorator> ####"
+
 @demo_decorator("decorator arg 1", "decorator arg 2")
 def demo_function(*args, **kwargs):
     print "+++> ", str(demo_function), args, kwargs
 
 
 
+
 print ""
 print "#### run <demo_function> with arguments ####"
+
 demo_function("function arg 1", "function arg 2")
+
 
 
 
