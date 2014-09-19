@@ -11,24 +11,6 @@ Career
 ----------------------------
 Automation Test Engineer
 
-Technologies
-----------------------------
-
-+ Python
-
-    - Selenium
-    
-    - wxPython
-    
-    - Django
-    
-    - Flask
-
-+ C
-
-    - Network Programming
-
-+ QTP
 
 
 
