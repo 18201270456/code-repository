@@ -13,10 +13,22 @@ Automation Test Engineer
 
 Technologies
 ----------------------------
-Python/C/JavaScript<br />
-Network Programing<br />
-Selenium<br />
-QTP<br />
-Django<br />
-Linux<br />
+
++ Python
+
+    - Selenium
+    
+    - wxPython
+    
+    - Django
+    
+    - Flask
+
++ C
+
+    - Network Programming
+
++ QTP
+
+
 
