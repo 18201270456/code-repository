@@ -4,7 +4,7 @@ import socket
 import select
 
 
-class DemoRequestHandler:
+class DemoTCPRequestHandler:
     rbufsize = -1
     wbufsize = 0
 
@@ -13,44 +13,37 @@ class DemoRequestHandler:
         self.client_address = client_address
         self.server         = server
         
-        self.connection     = self.request
-        
-        print self, request, client_address, server
-        
-        self.rfile = self.connection.makefile('rb', self.rbufsize)
-        self.wfile = self.connection.makefile('wb', self.wbufsize)
+        self.rfile = self.request.makefile('rb', self.rbufsize)
+        self.wfile = self.request.makefile('wb', self.wbufsize)
         
         
-        self.raw_requestline = self.rfile.readline(65537)
-        
-        print self.raw_requestline.strip()
+        self.raw_request = ""
         while True:
             data = self.rfile.readline(65537)
             
-            if data.strip() == "":
+            if data == "\r\n" or data == "":
                 break
             
-            print data.strip()
-            
+            self.raw_request = "%s%s" % (self.raw_request, data)
         
         
-        print len(self.raw_requestline.split(' '))
-        
-        self.command         = self.raw_requestline.split(' ')[0]
-        self.path            = self.raw_requestline.split(' ')[1]
-        self.request_version = self.raw_requestline.split(' ')[2]
-        
-        
-        self.wfile.write("Hello World")
-        
-        self.finish()
-
+        try:
+            self.handle()
+        finally:
+            self.finish()
+    
+    
+    def handle(self):
+        print self.raw_request
+        self.wfile.write(self.raw_request)
+    
+    
     def finish(self):
         if not self.wfile.closed:
             self.wfile.flush()
+        
         self.wfile.close()
         self.rfile.close()
-        print "done"
 
 
 
@@ -59,8 +52,7 @@ class DemoRequestHandler:
 class DemoTCPServer:
 
     def __init__(self, server_address, RequestHandlerClass):
-        
-        self.server_address      = server_address # e.g. ("127.0.0.1", 8080)
+        self.server_address      = server_address #e.g. ("127.0.0.1", 8080)
         self.RequestHandlerClass = RequestHandlerClass
         
         self.__shutdown_request  = False
@@ -70,9 +62,9 @@ class DemoTCPServer:
         self.socket.bind(self.server_address)
         self.socket.listen(5)
         
-        
-
-
+        self.server_name = socket.getfqdn(server_address[0])
+    
+    
     def serve_forever(self, poll_interval=0.5):
         try:
             while not self.__shutdown_request:
@@ -81,21 +73,17 @@ class DemoTCPServer:
                     self._handle_request_noblock()
         finally:
             self.__shutdown_request = False
-
-
+    
+    
     def shutdown(self):
         self.__shutdown_request = True
-
-
-
+    
+    
     def _handle_request_noblock(self):
         request, client_address = self.socket.accept()
         
-        print self, request, client_address
-        
         self.RequestHandlerClass(request, client_address, self)
-        
-        request.close()
+    
 
 
 
@@ -104,12 +92,11 @@ class DemoTCPServer:
 
 
 if __name__ == "__main__":
-    import time
     
-    tcp_server = DemoTCPServer(("0.0.0.0", 8888), DemoRequestHandler)
-    
+    tcp_server = DemoTCPServer(("0.0.0.0", 8888), DemoTCPRequestHandler)
     tcp_server.serve_forever()
     
+    ### Use Chrome/Firefox to browse "http://127.0.0.1:8888" will get the text reply from TCP server. ###
 
 
 
