@@ -59,10 +59,9 @@ class DemoTCPServer:
         
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         
-        self.socket.bind(self.server_address)
-        self.socket.listen(5)
+        self.server_bind()
+        self.server_activate()
         
-        self.server_name = socket.getfqdn(server_address[0])
     
     
     def serve_forever(self, poll_interval=0.5):
@@ -73,6 +72,18 @@ class DemoTCPServer:
                     self._handle_request_noblock()
         finally:
             self.__shutdown_request = False
+    
+    
+    def server_bind(self):
+        self.socket.bind(self.server_address)
+        
+        self.server_address = self.socket.getsockname()
+        self.server_name    = socket.getfqdn(self.server_address[0])
+        self.server_port    = self.server_address[1]
+    
+    
+    def server_activate(self):
+        self.socket.listen(5)
     
     
     def shutdown(self):

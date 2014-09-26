@@ -4,8 +4,9 @@
 from tcp import DemoTCPRequestHandler, DemoTCPServer
 
 
-class DemoHTTPRequestHandler(DemoTCPRequestHandler):
 
+class DemoHTTPRequestHandler(DemoTCPRequestHandler):
+    
     def handle(self):
         """Handle a single HTTP request"""
         
@@ -46,10 +47,32 @@ class DemoHTTPServer(DemoTCPServer):
 
 
 
+
+
+
+
+
+
+
 if __name__ == "__main__":
     
     http_server = DemoHTTPServer(("0.0.0.0", 8888), DemoHTTPRequestHandler)
     http_server.serve_forever()
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
