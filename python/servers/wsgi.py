@@ -16,13 +16,18 @@ import os, sys
 
 class DemoWSGIServerHandler:
 
+    def __init__(self, stdin, stdout, stderr, environ,
+        multithread=True, multiprocess=False
+    ):
+        self.stdin             = stdin
+        self.stdout            = stdout
+        self.stderr            = stderr
+        self.base_env          = environ
+        self.wsgi_multithread  = multithread
+        self.wsgi_multiprocess = multiprocess
+    
+    
     def run(self, application):
-        """Invoke the application"""
-        # Note to self: don't move the close()!  Asynchronous servers shouldn't
-        # call close() from finish_response(), so if you close() anywhere but
-        # the double-error branch here, you'll break asynchronous servers by
-        # prematurely closing.  Async servers must return from 'run()' without
-        # closing if there might still be output to iterate over.
         try:
             self.setup_environ()
             self.result = application(self.environ, self.start_response)
@@ -48,6 +53,14 @@ class DemoWSGIServerHandler:
             self.result = self.headers = self.status = self.environ = None
             self.bytes_sent = 0; self.headers_sent = False
 
+    def write(self, data):
+        """'write()' callable as specified by PEP 333"""
+
+        self.wfile.write("HTTP/1.1 200 OK")
+        self.wfile.write("Content-Type: text/html;charset=utf-8\r\n")
+        self.wfile.write("\r\n")
+        
+        self.wfile.write(data)
 
 
 
@@ -59,12 +72,13 @@ class DemoWSGIRequestHandler(DemoHTTPRequestHandler):
     
     
     def get_environ(self):
-        return self.server.base_environ.copy()
+        env = self.server.base_environ.copy()
     
-    
-    def setup_environ(self):
-        env = self.environ = self.os_environ.copy()
-
+        env['SERVER_PROTOCOL'] = self.request_version
+        env['REQUEST_METHOD'] = self.command
+        
+        env['REMOTE_ADDR'] = self.client_address[0]
+        
         env['wsgi.input']        = sys.stdin
         env['wsgi.errors']       = sys.stderr
         env['wsgi.version']      = (1, 0, 1)
@@ -72,38 +86,22 @@ class DemoWSGIRequestHandler(DemoHTTPRequestHandler):
         env['wsgi.url_scheme']   = "http"
         env['wsgi.multithread']  = False
         env['wsgi.multiprocess'] = True
+        
+        
+        
+        return env
+    
+    
+
     
     
     def handle(self):
         self.run(self.server.get_app())
     
     
-    def run(self, application):
-        self.environ = dict(os.environ.items()).copy()
-        
-        self.result = application(self.environ, self.start_response)
-        
-        self.finish_response()
     
     
-    def finish_response(self):
-        for data in self.result:
-            self.write(data)
     
-    
-    def start_response(self, status, headers, exc_info=None):
-        self.status = status
-        return self.write
-    
-    
-    def write(self, data):
-        """'write()' callable as specified by PEP 333"""
-
-        self.wfile.write("HTTP/1.1 200 OK")
-        self.wfile.write("Content-Type: text/html;charset=utf-8\r\n")
-        self.wfile.write("\r\n")
-        
-        self.wfile.write(data)
 
 
 
