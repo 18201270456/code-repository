@@ -98,6 +98,44 @@
 
 
 
+###### RemoteSystemsTempFiles
+
+    If you want to remove the RemoteSystemsTempFiles, just go under Window -> Preferences -> General -> Startup and Shutdown and uncheck "RSE UI". Then you can remove the folder and eclipse won't recreate it.
+    
+    http://stackoverflow.com/questions/3627463/what-is-remotesystemstempfiles-in-eclipse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
