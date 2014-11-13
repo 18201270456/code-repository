@@ -58,8 +58,11 @@
     Window => Preferences => PyDev => Editor
     
     Window => Preferences => General => Appearance => Color and Fonts => Basic : Text Font
-
-
+    
+    
+    PyDev Missing ScrollBar:
+    
+    Window => Preferences => PyDev => Editor => Overview Ruler Minimap
 
 
 

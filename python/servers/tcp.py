@@ -5,6 +5,16 @@ import select
 
 
 class DemoTCPRequestHandler:
+    
+    '''
+    https://docs.python.org/2/library/functions.html#open
+    
+    The optional buffering argument specifies the file’s desired buffer size: 
+        0 means unbuffered, 
+        1 means line buffered, 
+        any other positive value means use a buffer of (approximately) that size (in bytes). 
+        A negative buffering means to use the system default, which is usually line buffered for tty devices and fully buffered for other files. If omitted, the system default is used. [2]
+    '''
     rbufsize = -1
     wbufsize = 0
 
@@ -83,7 +93,7 @@ class DemoTCPServer:
     
     
     def server_activate(self):
-        self.socket.listen(5)
+        self.socket.listen(0)
     
     
     def shutdown(self):
