@@ -4,7 +4,7 @@ Description:
     Python Web Server Gateway Interface
     
 Reference:
-    http://legacy.python.org/dev/peps/pep-3333/
+    https://www.python.org/dev/peps/pep-3333/
     
     
 '''
@@ -16,11 +16,6 @@ import os, sys
 
 class DemoWSGIServerHandler:
     """Manage the invocation of a WSGI application"""
-    
-    # os_environ is used to supply configuration from the OS environment:
-    # by default it's a copy of 'os.environ' as of import time, but you can
-    # override this in e.g. your __init__ method.
-    os_environ = dict(os.environ.items())
     
     
     def __init__(self, stdin, stdout, stderr, environ, multithread=True, multiprocess=False):
@@ -35,7 +30,7 @@ class DemoWSGIServerHandler:
     def setup_environ(self):
         """Set up the environment for one request"""
         
-        self.environ = self.os_environ.copy()
+        self.environ = dict(os.environ.items()).copy()
         self.environ.update(self.base_env)
         
         self.environ['wsgi.input']        = self.stdin
@@ -68,8 +63,21 @@ class DemoWSGIServerHandler:
     
     
     def finish_response(self):
+        self._write("HTTP/1.1 %s" % self.status)
+        
+        for header in self.headers:
+            self._write("%s: %s" % (header[0], header[1]))
+        
+        
+        self.bytes_sent = 0
         for data in self.result:
-            self.write(data)
+            self.bytes_sent = self.bytes_sent + len(data)
+        
+        self._write("content-length: %s\r\n" % self.bytes_sent)
+        self._write("\r\n")
+        
+        for data in self.result:
+            self._write(data)
         
         self.close()
     
@@ -94,25 +102,16 @@ class DemoWSGIServerHandler:
     
     def write(self, data):
         """'write()' callable as specified by PEP 333"""
-        
-        self._write("HTTP/1.1 200 OK")
-        self._write("Content-Type: text/html;charset=utf-8\r\n")
-        self._write("Content-Length: 322\r\n")
-        self._write("\r\n")
-        
-        # XXX check Content-Length and truncate if too many bytes written?
-        self._write(data)
-        self._flush()
+        pass
     
     
     def _write(self, data):
+        print data
         self.stdout.write(data)
-        self._write = self.stdout.write
     
     
     def _flush(self):
         self.stdout.flush()
-        self._flush = self.stdout.flush
     
     
     def close(self):
@@ -125,7 +124,7 @@ class DemoWSGIServerHandler:
                 self.result.close()
         finally:
             self.result = self.headers = self.status = self.environ = None
-            self.bytes_sent = 0; self.headers_sent = False
+            self.bytes_sent = 0
 
 
     def handle_error(self):
@@ -197,30 +196,36 @@ class DemoWSGIServer(DemoHTTPServer):
 
 
 
-def simple_app(environ, start_response):
+def app_hello_world(environ, start_response):
     start_response('200 OK', [('Content-Type','text/html')])
     
     return ['<html><body><h1>hello world!</h1></body></html>']
 
 
 
-def show_environ(environ, start_response):
+def app_show_environ(environ, start_response):
     start_response('200 OK',[('Content-type','text/html')])
     
     sorted_keys = environ.keys()
     sorted_keys.sort()
-    return [
-        '<html><body><h1>Keys in <tt>environ</tt></h1><p>',
-        '<br />'.join(sorted_keys),
-        '</p></body></html>',
-    ]
+    
+    result = []
+    result.append('<html><body><h1>keys-values of environ:</h1>')
+    
+    for key in sorted(environ.keys()):
+        result.append("<p>%s = %s </p>" % (key, environ[key]))
+    
+    result.append('</body></html>')
+    
+    return result
 
 
 
 if __name__ == "__main__":
     
     http_server = DemoWSGIServer(("0.0.0.0", 8888), DemoWSGIRequestHandler)
-    http_server.set_app(simple_app)
+    #http_server.set_app(app_hello_world)
+    http_server.set_app(app_show_environ)
     http_server.serve_forever()
     
     

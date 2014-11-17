@@ -27,7 +27,7 @@ class DemoTCPRequestHandler:
         self.wfile = self.request.makefile('wb', self.wbufsize)
         
         
-        self.raw_request = ""
+        self.raw_request = self.rfile.readline()
         while True:
             data = self.rfile.readline(65537)
             
@@ -49,9 +49,6 @@ class DemoTCPRequestHandler:
     
     
     def finish(self):
-        if not self.wfile.closed:
-            self.wfile.flush()
-        
         self.wfile.close()
         self.rfile.close()
 
