@@ -65,19 +65,20 @@ class DemoWSGIServerHandler:
     def finish_response(self):
         self._write("HTTP/1.1 %s" % self.status)
         
+        
+        ### write headers ###
         for header in self.headers:
             self._write("%s: %s" % (header[0], header[1]))
         
-        
-        self.bytes_sent = 0
-        for data in self.result:
-            self.bytes_sent = self.bytes_sent + len(data)
+        # length of self.result
+        self.bytes_sent = reduce(lambda x,y: x+y, map(len, self.result))
         
         self._write("content-length: %s\r\n" % self.bytes_sent)
         self._write("\r\n")
         
-        for data in self.result:
-            self._write(data)
+        
+        ### write body ###
+        map(self._write, self.result)
         
         self.close()
     
@@ -150,15 +151,13 @@ class DemoWSGIRequestHandler(DemoHTTPRequestHandler):
     def get_stderr(self):
         return sys.stderr
     
+    
     def handle(self):
         """Handle a single HTTP request"""
-        
-        #self.raw_requestline = self.rfile.readline()
         
         handler = DemoWSGIServerHandler(
             self.rfile, self.wfile, self.get_stderr(), self.get_environ()
         )
-        handler.request_handler = self      # backpointer for logging
         handler.run(self.server.get_app())
 
 
@@ -210,7 +209,7 @@ def app_show_environ(environ, start_response):
     sorted_keys.sort()
     
     result = []
-    result.append('<html><body><h1>keys-values of environ:</h1>')
+    result.append('<html><body><h1>key/value of environ</h1>')
     
     for key in sorted(environ.keys()):
         result.append("<p>%s = %s </p>" % (key, environ[key]))
