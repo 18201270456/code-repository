@@ -18,3 +18,5 @@ print reduce(add, a)
 
 print reduce(lambda x, y : x+y, a)
 print filter(lambda x : x % 2 == 0, a)
+
+
