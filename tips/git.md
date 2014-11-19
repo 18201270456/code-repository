@@ -1,17 +1,20 @@
-﻿git remote add origin https://github.com/hww712/hongwei.git
+﻿
+###### Initialization
 
-git push -u origin master
-git config remote.origin.url https://hww712:password@github.com/hww712/hongwei.git
+    git remote add origin https://github.com/hww712/hongwei.git
+    
+    git push -u origin master
+    git config remote.origin.url https://hww712:password@github.com/hww712/hongwei.git
 
 
 
-###### add .gitignore in project root
+###### Add .gitignore in project root
 
     Windows 7:
         > edit .gitignore
 
 
-###### configure user.name/user.email in eclipse
+###### Configure user.name/user.email in eclipse
 
     Preferences => Team => Git => Configuration :: Repository Settings
     
@@ -21,6 +24,9 @@ git config remote.origin.url https://hww712:password@github.com/hww712/hongwei.g
     
     Key: user.name,  Value: Henry.Wang
     Key: user.email, Value: test@test.com
+    
+    Remark:
+       Set the correct name/email, or the GitHub may not showing contribution activities.
 
 
 
