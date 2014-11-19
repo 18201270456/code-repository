@@ -18,7 +18,6 @@ import wsgi
 GET_URL_MAPPINGS = {}
 
 
-
 def add_slash(url):
     """Adds a trailing slash for consistency in urls."""
     if not url.endswith('/'):
@@ -55,7 +54,7 @@ def handle_request(environ, start_response):
     if GET_URL_MAPPINGS.has_key(request_url):
         response_message.append("<p>Your Requesting Answer: %s</p>" % GET_URL_MAPPINGS[request_url](request))
     else:
-        response_message.append("<p>Your requesting is not supported by this framework! :(</p>")
+        response_message.append("<p>Your requesting is not supported by the project! :(</p>")
     
     response_message.append("</body></html>")
     

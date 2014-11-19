@@ -41,14 +41,11 @@ class DemoHTTPRequestHandler(DemoTCPRequestHandler):
         self.wfile.write("Content-Type: text/html;charset=utf-8\r\n")
         self.wfile.write("Content-Length: %s\r\n" % len(html))
         
-        
         self.wfile.write("\r\n")
         
         
         ###### response message ######
         self.wfile.write(html)
-        
-
 
 
 
@@ -57,22 +54,10 @@ class DemoHTTPServer(DemoTCPServer):
 
 
 
-
-
-
-
-
-
-
-
 if __name__ == "__main__":
     
     http_server = DemoHTTPServer(("0.0.0.0", 8888), DemoHTTPRequestHandler)
     http_server.serve_forever()
-    
-
-
-
 
 
 

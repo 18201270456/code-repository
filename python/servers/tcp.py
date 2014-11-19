@@ -58,8 +58,6 @@ class DemoTCPRequestHandler:
 
 
 
-
-
 class DemoTCPServer:
 
     def __init__(self, server_address, RequestHandlerClass):
@@ -105,9 +103,6 @@ class DemoTCPServer:
         request, client_address = self.socket.accept()
         
         self.RequestHandlerClass(request, client_address, self)
-    
-
-
 
 
 
