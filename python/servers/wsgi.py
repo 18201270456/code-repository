@@ -76,7 +76,8 @@ class DemoWSGIServerHandler:
             self._write("%s: %s" % (header[0], header[1]))
         
         # length of self.result
-        self.bytes_sent = reduce(lambda x,y: x+y, map(len, self.result))
+        # self.bytes_sent = reduce(lambda x,y: x+y, map(len, self.result))
+        self.bytes_sent = sum(map(len, self.result))
         
         self._write("content-length: %s\r\n" % self.bytes_sent)
         self._write("\r\n")
