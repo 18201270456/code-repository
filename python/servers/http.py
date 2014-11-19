@@ -1,14 +1,25 @@
 # -*- coding: utf-8 -*-
 
+#===============================================================================
+# This is a demo HTTP Server based on the demo TCP server.
+#===============================================================================
+
 
 from tcp import DemoTCPRequestHandler, DemoTCPServer
 
 
-
 class DemoHTTPRequestHandler(DemoTCPRequestHandler):
+    
+    def parse_request(self):
+        self.request_method  = self.raw_request.split("\r\n")[0].split(' ')[0]
+        self.path_info       = self.raw_request.split("\r\n")[0].split(' ')[1]
+        self.server_protocol = self.raw_request.split("\r\n")[0].split(' ')[2]
+    
     
     def handle(self):
         """Handle a single HTTP request"""
+        self.parse_request()
+        
         
         html = """<!DOCTYPE html>
         <html>

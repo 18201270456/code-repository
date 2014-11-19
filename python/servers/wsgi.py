@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+
+#===============================================================================
+# This is a demo WSGI implementation based on the demo HTTP Server.
+#===============================================================================
+
 '''
 Description:
     Python Web Server Gateway Interface
@@ -137,13 +142,15 @@ class DemoWSGIServerHandler:
 class DemoWSGIRequestHandler(DemoHTTPRequestHandler):
     
     def get_environ(self):
+        self.parse_request()
+        
         env = self.server.base_environ.copy()
-        env['REQUEST_METHOD']  = "GET"
-        env['PATH_INFO']       = ""
+        env['REQUEST_METHOD']  = self.request_method
+        env['PATH_INFO']       = self.path_info
         env['QUERY_STRING']    = ""
         env['CONTENT_TYPE']    = "html/text"
         env['CONTENT_LENGTH']  = ""
-        env['SERVER_PROTOCOL'] = "HTTP/1.1"
+        env['SERVER_PROTOCOL'] = self.server_protocol
         
         return env
     
@@ -196,14 +203,14 @@ class DemoWSGIServer(DemoHTTPServer):
 
 
 def app_hello_world(environ, start_response):
-    start_response('200 OK', [('Content-Type','text/html')])
+    start_response('200 OK', [('content-type', 'text/html')])
     
     return ['<html><body><h1>hello world!</h1></body></html>']
 
 
 
 def app_show_environ(environ, start_response):
-    start_response('200 OK',[('Content-type','text/html')])
+    start_response('200 OK', [('content-type', 'text/html')])
     
     sorted_keys = environ.keys()
     sorted_keys.sort()

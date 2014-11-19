@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+#===============================================================================
+# This is a Demo TCP Server based on pure socket programming.
+#===============================================================================
+
+
 import socket
 import select
 
@@ -26,8 +31,7 @@ class DemoTCPRequestHandler:
         self.rfile = self.request.makefile('rb', self.rbufsize)
         self.wfile = self.request.makefile('wb', self.wbufsize)
         
-        
-        self.raw_request = self.rfile.readline()
+        self.raw_request = ""
         while True:
             data = self.rfile.readline(65537)
             
