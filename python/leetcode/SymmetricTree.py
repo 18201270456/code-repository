@@ -23,7 +23,7 @@ class Solution:
         
         if left != None and right != None:
             if left.val == right.val:
-                return self.is_mirrored(left.left, right.right) and self.is_mirrored(right.right, left.left)
+                return self.is_mirrored(left.left, right.right) and self.is_mirrored(left.right, right.left)
         
         return False
     
@@ -71,14 +71,14 @@ class Solution:
         l = []
         l.append(root)
         
-        while ( l[-1] != None*len(l[-1]) ):
-            newlist = []
-            for item in l[-1]:
-                newlist.append(item.left)
-                newlist.append(item.right)
-            
-            
-            
+        s = []
+        while True:
+            for item in s:
+                l.append((lambda x: "#" if x==None else x.val)(item.left))
+                l.append((lambda x: "#" if x==None else x.val)(item.right))
+        
+        
+        
 
 
 
