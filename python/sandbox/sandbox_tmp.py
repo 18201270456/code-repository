@@ -1,8 +1,14 @@
 
-import mysql
 
-path = ""
+def child_nodes(node):
+    if node == "1":
+        return "2"
+    else:
+        pass
 
+a = ["1", 22, 3]
+
+print map(child_nodes, a)
 
 
 #===============================================================================

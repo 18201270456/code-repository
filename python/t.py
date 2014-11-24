@@ -1,22 +1,17 @@
+# Definition for a  binary tree node
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
 
-a = 5
+a = TreeNode(3)
 
 
-if a is 5:
-    print "haha"
+print ([a])
 
-a = "abcccde"
-
-b = "abcccde"
-
-if a is b:
-    print "hehe"
-
-
-print "aa" is "a" * 2
-
-
+print a
 
 
 
