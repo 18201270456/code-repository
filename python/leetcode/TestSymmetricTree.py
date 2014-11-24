@@ -1,15 +1,22 @@
 
-
 import unittest
 
-from SymmetricTree import *
+from SymmetricTree import Solution
+
+
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
 
 class TestSolution(unittest.TestCase):
 
     def setUp(self):
         pass
-        
+    
+    
     def get_a_symmetric_tree(self):
         n1       = TreeNode(1)
         n1.left  = TreeNode(2)
@@ -42,21 +49,12 @@ class TestSolution(unittest.TestCase):
         return root
 
 
-    def test_none_symmetric(self):
+    def test_all(self):
         my_solution = Solution()
         
         self.assertFalse(my_solution.isSymmetric(self.get_a_none_symmetric_tree()), "NON-SYMMETRIC tree, return False")
-
-
-    def test_symmetric(self):
-        my_solution = Solution()
         
         self.assertTrue(my_solution.isSymmetric(self.get_a_symmetric_tree()), "SYMMETRIC tree, return True")
-
-
-    def test_special_data(self):
-        my_solution = Solution()
-        
         self.assertTrue(my_solution.isSymmetric(None))
         self.assertTrue(my_solution.isSymmetric(TreeNode(3)))
         

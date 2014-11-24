@@ -1,4 +1,5 @@
 # Definition for a  binary tree node
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -10,7 +11,7 @@ class TreeNode:
 
 def tree_by_level(root):
     '''
-    Return a list of lists of tree nodes by level.
+    Return a list of lists of binary-tree nodes by level.
     
     Example:
         [
@@ -40,6 +41,7 @@ def tree_by_level(root):
     
     
     return result
+
 
 
 def binary_tree_serialization(root):
@@ -76,6 +78,7 @@ def binary_tree_serialization(root):
     return result
 
 
+
 def serialization_backto_binary_tree(serial):
     '''
     From:
@@ -90,8 +93,15 @@ def serialization_backto_binary_tree(serial):
         \
          5
     '''
-    
-    root = TreeNode()
+    node_levels = []
+    for level in levels:
+        node_level = []
+        
+        for item in level:
+            node = TreeNode(item) if item!='#' else None
+            node_level.append(node)
+        
+        node_levels.append(node_level)
     
     
     
