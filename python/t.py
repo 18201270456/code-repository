@@ -1,3 +1,5 @@
+
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -9,25 +11,35 @@ s = [1, 2, 3, '#', '#', 4, '#', '#', 5]
 
 
 
-
 levels = []
 
-level_node_count = 1
+count = 1
 while len(s) > 0:
-    levels.append(s[0:level_node_count])
-    s = s[level_node_count:]
+    map(lambda x: TreeNode(x) if x!='#' else None, s[0:count])
+    s = s[count:]
     
-    level_node_count = len(filter(lambda x: x!='#', levels[-1]))*2
+    count = len(filter(lambda x: x!='#', s[0:count]))*2
 
 
-print s
-print levels
+
+
+val_levels = []
+
+count = 1
+while len(s) > 0:
+    val_levels.append(s[0:count])
+    s = s[count:]
+    
+    count = len(filter(lambda x: x!='#', val_levels[-1]))*2
+
+
+
 
 node_levels = []
-for level in levels:
+for val_level in val_levels:
     
     node_level = []
-    for item in level:
+    for item in val_level:
         node = TreeNode(item) if item!='#' else None
         node_level.append(node)
     
